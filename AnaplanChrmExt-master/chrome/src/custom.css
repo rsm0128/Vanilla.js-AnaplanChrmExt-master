@@ -1,0 +1,83 @@
+.container {
+  width: 300px;
+}
+
+.prenium-mark {
+  position: absolute;
+  right: 40px;
+  top: 8px;
+  color: #f8d71a;
+  font-size: 21px;
+  z-index: 10;
+}
+
+.prenium-mark .material-icons {
+  font-size: 21px;
+}
+
+.my-card-title {
+  font-size: 14px;
+  text-align: center;
+}
+
+.card-img-top {
+  width: 50px;
+}
+
+.mat-card-image {
+  width: 60px;
+  margin: auto;
+  padding-top: 0px;
+}
+
+.mat-card {
+  width: 120px;
+  height: 130px;
+}
+
+.mat-card-content {
+  text-align: center;
+}
+
+.card {
+  /* border: 1px solid rgba(0, 0, 0, 0.5); */
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+.card-title {
+  font-size: 14px;
+  font-weight: bold;
+  height: 55px;
+  padding: 5px;
+  display: flex;
+}
+
+.card-title span {
+  display: block;
+  margin: auto;
+}
+
+#messageTab {
+  width: 500px;
+  margin: 0px -15px;
+  padding: 20px 30px 10px;
+}
+
+.container #mainTab {
+  text-align: center;
+  font-size: 14px;
+  /* font-weight: bold; */
+  padding-top: 20px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.take-snapshot-mark {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  color: white;
+  font-size: 21px;
+  z-index: 10;
+}

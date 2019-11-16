@@ -1,0 +1,38 @@
+<div class="sidebar-wrapper">
+  <div class="logo">
+    <a href="/index.html" class="simple-text logo-normal">
+      <img src="./assets/img/sidebarlogo.png" alt="M+" height="50">
+    </a>
+    <!-- <a href="/" class="simple-text logo-normal">
+      Creative Tim
+    </a> -->
+  </div>
+  <ul class="nav mysidespace">
+    <div *ngFor="let menuItems of menuItemGroup">
+      <div *ngIf="menuItems.children.length > 0">
+        <div *ngIf="menuItems.children.length == 1">
+          <li routerLinkActive="active" class="{{menuItems.children[0].class}}">
+            <a [routerLink]="[menuItems.children[0].path]">
+              <i class="nc-icon {{menuItems.children[0].icon}}"></i>
+              <p>{{menuItems.children[0].title}}</p>
+            </a>
+          </li>
+        </div>
+        <div *ngIf="menuItems.children.length > 1">
+          <li>
+            <a>
+              <p>{{menuItems.title}}</p>
+            </a>
+          </li>
+          <li *ngFor="let menuItem of menuItems.children" routerLinkActive="active" class="{{menuItem.class}}">
+            <a [routerLink]="[menuItem.path]">
+              <i class="nc-icon {{menuItem.icon}}"></i>
+              <p>{{menuItem.title}}</p>
+            </a>
+          </li>
+        </div>
+        <hr />
+      </div>
+    </div>
+  </ul>
+</div>

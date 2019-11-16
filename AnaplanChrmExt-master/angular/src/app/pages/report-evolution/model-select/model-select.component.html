@@ -1,0 +1,30 @@
+<h6 class="card-title">{{title}}</h6>
+<div class="card card-stats">
+  <div class="card-body ">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group row">
+          <label class="col-md-4 col-form-label">MODEL:</label>
+          <div class="col-md-8">
+            <mat-select class="form-control" [(ngModel)]="modelId" (selectionChange)="modelChanged()">
+              <mat-option *ngFor="let model of modelList" [value]="model.code">{{model.name}}
+              </mat-option>
+            </mat-select>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="form-group row">
+          <label class="col-md-4 col-form-label">VERSION:</label>
+          <div class="col-md-8">
+            <mat-select class="form-control" [(ngModel)]="snapshotId" (selectionChange)="snapshotChanged()">
+              <mat-option *ngFor="let v of getVersionList();" value="{{v.id}}">
+                {{v.label}}
+              </mat-option>
+            </mat-select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

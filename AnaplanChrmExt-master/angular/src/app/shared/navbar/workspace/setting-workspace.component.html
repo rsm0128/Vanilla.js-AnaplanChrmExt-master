@@ -1,0 +1,33 @@
+<h1 mat-dialog-title>Select a Snapshot</h1>
+<div mat-dialog-content>
+  <mat-form-field *ngIf="wsInfos?.length > 0">
+    <mat-select matInput [(ngModel)]="data.workspaceId" placeholder="Workspace ID" [formControl]="workspaceid"
+      (selectionChange)="selectedWorkspace()">
+      <mat-option *ngFor="let wsInfo of wsInfos" [value]="wsInfo.code">
+        {{wsInfo.name}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="workspaceid.invalid">{{getErrorMessage()}}</mat-error>
+  </mat-form-field>
+  <mat-form-field *ngIf="modelInfos?.length > 0">
+    <mat-select matInput [(ngModel)]="data.modelId" placeholder="Model Name" [formControl]="modelid"
+      (selectionChange)="selectedModel()">
+      <mat-option *ngFor="let modelInfo of modelInfos" [value]="modelInfo.code">
+        {{modelInfo.name}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="modelid.invalid">{{getErrorMessage()}}</mat-error>
+  </mat-form-field>
+  <mat-form-field *ngIf="modelInfos && getModelCount(data.modelId) > 0">
+    <mat-select matInput [(ngModel)]="data.snapshotId" placeholder="Snapshot Version" [formControl]="snapshotid">
+      <mat-option *ngFor="let v of getEmptyArray(getModelCount(data.modelId))" [value]="(v + 1)">
+        {{v + 1}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="snapshotid.invalid">{{getErrorMessage()}}</mat-error>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-raised-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+  <button mat-raised-button (click)="onNoClick()">Cancel</button>
+</div>

@@ -1,0 +1,43 @@
+{
+  "manifest_version": 2,
+  "name": "M+ for Anaplan",
+  "short_name": "M+",
+  "version": "1.0.0",
+  "description": "M+ Anaplan  scaffold project",
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "http://*.app.anaplan.loc/*",
+    "https://*.app.anaplan.loc/*",
+    "http://*.app.anaplan.com/*",
+    "https://*.app.anaplan.com/*",
+    "storage"
+  ],
+  "browser_action": {
+    "default_icon": "assets/icons/icon128.png",
+    "default_popup": "popup.html",
+    "default_title": "M+ Anaplan "
+  },
+
+  "content_scripts": [{
+    "js": ["content.js"],
+    "matches": ["http://*.app.anaplan.loc/*",
+      "https://*.app.anaplan.loc/*",
+      "http://*.app.anaplan.com/*",
+      "https://*.app.anaplan.com/*"
+    ]
+  }],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "web_accessible_resources": [
+    "anaplan.js"
+  ],
+  "icons": {
+    "16": "assets/icons/icon16.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
+  },
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}

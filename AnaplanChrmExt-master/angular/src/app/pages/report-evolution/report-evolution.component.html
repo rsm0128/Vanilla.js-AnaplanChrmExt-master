@@ -1,0 +1,156 @@
+<div class="row margin-bottom" class="panel-style">
+  <div class="col-md-12">
+    <h2 class="card-title">Model Evolution</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-6 col-md-6 col-sm-12">
+    <app-model-select [title]="'snapshot1'" [curWSInfoIdx]="1" [(modelList)]="snapshotModel.modelList"
+      [(snapshotId)]="snapshotModel.snapshotId1" [(modelId)]="snapshotModel.modelId1"
+      (calcDifference)="calcDifferences($event)">
+    </app-model-select>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-12">
+    <app-model-select [title]="'snapshot2'" [curWSInfoIdx]="2" [(modelList)]="snapshotModel.modelList"
+      [(snapshotId)]="snapshotModel.snapshotId2" [(modelId)]="snapshotModel.modelId2"
+      (calcDifference)="calcDifferences($event)">
+    </app-model-select>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-6 col-md-6 col-sm-12">
+    <h6 class="card-title">Modules</h6>
+    <div class="card card-body">
+      <apx-chart #moduleDiffChart [chart]="moduleDiffChartOpt.chart" [colors]="moduleDiffChartOpt.colors"
+        [plotOptions]="moduleDiffChartOpt.plotOptions" [fill]="moduleDiffChartOpt.fill"
+        [dataLabels]="moduleDiffChartOpt.dataLabels" [series]="moduleDiffChartOpt.series"
+        [yaxis]="moduleDiffChartOpt.yaxis">
+      </apx-chart>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-12">
+    <h6 class="card-title">Line Items</h6>
+    <div class="card card-body">
+      <apx-chart #lineItemDiffChart [chart]="lineItemDiffChartOpt.chart" [colors]="lineItemDiffChartOpt.colors"
+        [plotOptions]="lineItemDiffChartOpt.plotOptions" [fill]="lineItemDiffChartOpt.fill"
+        [dataLabels]="lineItemDiffChartOpt.dataLabels" [series]="lineItemDiffChartOpt.series"
+        [yaxis]="lineItemDiffChartOpt.yaxis">
+      </apx-chart>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-6 col-md-12 col-sm-12">
+    <h6 class="card-title">Modules Changes</h6>
+    <div class="card card-stats">
+      <div class="card-body ">
+        <div class="row">
+          <div class="col-4">
+            <div class="card-header">
+              <h5 class="card-title">{{moduleDiffs.applies}}</h5>
+            </div>
+            <div class="card-footer stats">
+              Applies To Changes
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card-header">
+              <h5 class="card-title">+ {{moduleDiffs.timeGranularity}} %</h5>
+            </div>
+            <div class="card-footer stats">
+              Time Granularity Changes
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card-header">
+              <h5 class="card-title">{{moduleDiffs.moduleNameChanes}}</h5>
+            </div>
+            <div class="card-footer stats">
+              Module Name Changes
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-12 col-sm-12">
+    <h6 class="card-title">Line Items Changes</h6>
+    <div class="card card-stats">
+      <div class="card-body ">
+        <div class="row">
+          <div class="col-4">
+            <div class="card-header">
+              <h5 class="card-title" *ngIf="lineItemDiffs">{{lineItemDiffs.formula}}</h5>
+            </div>
+            <div class="card-footer stats">
+              Formula Changes
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card-header">
+              <h5 class="card-title" *ngIf="lineItemDiffs">{{lineItemDiffs.applies}}</h5>
+            </div>
+            <div class="card-footer stats">
+              Time Period
+              Changes
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card-header">
+              <h5 class="card-title" *ngIf="lineItemDiffs">{{lineItemDiffs.liname}}</h5>
+            </div>
+            <div class="card-footer stats">
+              Label Changes
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-6 col-md-12 col-sm-12">
+    <h6 class="card-title">TIME SETTINGS</h6>
+    <div class="card card-body">
+      <apx-chart #modelTMScaleChart [chart]="modelTMScaleChartOpt.chart" [dataLabels]="modelTMScaleChartOpt.dataLabels"
+        [stroke]="modelTMScaleChartOpt.stroke" [series]="modelTMScaleChartOpt.series" [grid]="modelTMScaleChartOpt.grid"
+        [xaxis]="modelTMScaleChartOpt.xaxis" [yaxis]="modelTMScaleChartOpt.yaxis"
+        [tooltip]="modelTMScaleChartOpt.tooltip" [markers]="modelTMScaleChartOpt.markers">
+      </apx-chart>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-12 col-sm-12">
+    <h6 class="card-title">VERSION SETTINGS</h6>
+    <div class="card card-stats">
+      <div class="card-body ">
+        <div class="row">
+          <div class="col-3">
+            <div class="card-header">
+              <h5 class="card-title">{{versionDiffs.append}}</h5>
+            </div>
+            <div class="card-footer stats">
+              Version Added
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card-header">
+              <h5 class="card-title"> {{versionDiffs.deteled}} </h5>
+            </div>
+            <div class="card-footer stats">
+              Version Deleted
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card-header">
+              <h5 class="card-title">{{versionDiffs.renamed}}</h5>
+            </div>
+            <div class="card-footer stats">
+              Version Renamed
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

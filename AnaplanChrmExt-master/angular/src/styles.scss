@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+
+$font-family: 'Open Sans', verdana, sans-serif;
+// Changes the font size
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~ag-grid-community/dist/styles/ag-grid.css";
+@import "~ag-grid-community/dist/styles/ag-theme-balham.css";
+
+.cell-wrap-text {
+  white-space: normal !important;
+}
+
+.backDropsCls {
+  background: rgba(255, 254, 254, 0)
+}
+.ag-theme-balham {
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  font-size:11px;
+}
+.mat-table {
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  font-size:11px !important;
+}

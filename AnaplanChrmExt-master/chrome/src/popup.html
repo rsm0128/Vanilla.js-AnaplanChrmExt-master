@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>M+ for Anaplan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+  <!-- <link rel="stylesheet" href="./bootstrap.min.css"> -->
+  <link href="./material-dashboard.min.css?v=2.1.1" rel="stylesheet">
+  <link rel="stylesheet" href="./custom.css">
+
+  <script src="./jquery.min.js"></script>
+  <script src="./popper.min.js"></script>
+  <script src="./bootstrap.min.js"></script>
+
+  <script src="./popup.js"></script>
+</head>
+
+<style>
+
+</style>
+
+<body style="font-family: Avenir, Helvetica, sans-serif">
+  <div class="container" id="maincontent">
+    <div id="mainTab">
+      <div class="row" style="margin-bottom: 10px">
+        <div class="col">
+          <img src="./assets/img/logobig.png" height="30px">
+        </div><br>
+        <div class="col">
+          <div flex="" class="menu-sub-title" style="font-size: 16px">Modelling Assistant</div>
+        </div>
+      </div>
+      <div class="row row-eq-height">
+        <div class="col-6" id="reportBtn">
+          <div class="card card-stats" style="cursor: pointer;">
+            <div class="card-header card-header-icon">
+              <div class="card-icon" style="background-color: #0038D1">
+                <i class="material-icons">
+                  description
+                </i>
+              </div>
+            </div>
+            <div class="card-title">
+              <span> Model Reports</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-6" id="snapshotBtn">
+          <div class="card card-stats" style="cursor: pointer;">
+            <div class="card-header card-header-icon">
+              <div class="card-icon" style="background-color: #0038D1">
+                <i class="material-icons">
+                  camera_alt
+                </i>
+              </div>
+            </div>
+            <div class="card-title">
+              <span> Take Snapshot</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row row-eq-height">
+        <div class="col-6" id="optimizationBtn">
+          <div class="card card-stats" style="cursor: pointer;">
+            <div class="card-header card-header-icon">
+              <div class="card-icon" style="background-color: #0038D1">
+                <i class="material-icons">
+                  access_time
+                </i>
+              </div>
+            </div>
+            <div class="card-title">
+              <span> Optimization </span>
+            </div>
+          </div>
+          <div class="prenium-mark">
+            <i class="material-icons">
+              star
+            </i>
+          </div>
+        </div>
+        <div class="col-6" id="historyBtn">
+          <div class="card card-stats" style="cursor: pointer;">
+            <div class="card-header card-header-icon">
+              <div class="card-icon" style="background-color: #0038D1">
+                <i class="material-icons" style="-webkit-transform: scaleX(-1); transform: scaleX(-1);">
+                  double_arrow
+                </i>
+              </div>
+            </div>
+            <div class="card-title">
+              <span>Formula History</span>
+            </div>
+          </div>
+          <div class="prenium-mark">
+            <i class="material-icons">
+              star
+            </i>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col" style="text-align: center; font-size:12px">
+          <span>provided by <a href="https://www.bipixconsulting.com" target="_blank" style="color: #0038D1"><u>BIPIX
+                consulting</u></a></span>
+        </div>
+      </div>
+    </div>
+    <div id="historyTab">
+      <div class="row">
+        <div class="card card-plain">
+          <div class="card-header" style="background-color: #0038D1">
+            <h4 style="text-align: left; color: #ffffff; font-weight: bold">Formula History</h4>
+            <div class="take-snapshot-mark">
+              <button class="btn btn-white btn-round btn-just-icon" id="takeSnapShot">
+                <i class="material-icons">
+                  add_a_photo
+                </i>
+                <div class="ripple-container"></div>
+              </button>
+              <button class="btn btn-white btn-round btn-just-icon" id="takeGoback">
+                <i class="material-icons">
+                  replay
+                </i>
+                <div class="ripple-container"></div>
+              </button>
+            </div>
+          </div>
+          <div class="col-11">
+            <div class="card-body">
+              <!-- <div class="form-group bmd-form-group">
+                <label class="bmd-label-floating" style="right: 0px;">
+                  <i class="material-icons">
+                    search
+                  </i>
+                </label>
+                <input type="text" class="form-control" >
+              </div> -->
+              <span class="form-group bmd-form-group">
+                <div class="input-group no-border">
+                  <input type="text" value="" class="form-control" placeholder="Search..." id="histsearchin">
+                  <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                    <i class="material-icons">search</i>
+                    <div class="ripple-container"></div>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink"
+                    id="navbarDropdownMenuLink">
+                    <li class="dropdown-item">Mike John responded to your email</li>
+                    <li class="dropdown-item">You have 5 new tasks</li>
+                    <li class="dropdown-item">You're now friend with Andrew</li>
+                    <li class="dropdown-item">Another Notification</li>
+                    <li class="dropdown-item">Another One</li>
+                  </div>
+                </div>
+              </span>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead class="text-black">
+                  <tr>
+                    <th>
+                      Date
+                    </th>
+                    <th>
+                      FORMULA
+                    </th>
+                  </tr>
+                </thead>
+                <tbody id="historyTbd"> </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="messageTab" class="alert alert-info pb-0">
+    <button type="button" class="close" id="messageCloseBtn">
+      <i class="material-icons">close</i>
+    </button>
+    <span id="messageContent"></span>
+    <div id="messageAction" class="pt-0 pb-0" style="height: 37px; position:relative">
+      <hr class="mt-1 mb-1">
+      <button type="button" class="btn btn-outline-info btn-sm" id="messageActionBtn"
+        style="position: absolute; right: 0px;color: white;background-color: transparent; border-color: aliceblue;">
+        Open Model Report >>
+      </button>
+    </div>
+  </div>
+</body>
+
+</html>

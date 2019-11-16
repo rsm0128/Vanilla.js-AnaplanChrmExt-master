@@ -1,0 +1,133 @@
+<div class="row margin-bottom" class="panel-style">
+  <div class="col-md-12">
+    <h2 class="card-title" style="font-size: calc(20px + 1.5vw); font-weight: bold; margin-top: 30px; margin-bottom: 30px;">Welcome
+      <span *ngIf="wsInfo?.model?.user"> {{(wsInfo.model.user.firstName)}},
+      </span>
+    </h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 col-sm-12">
+    <div class="card">
+      <!-- <div class="card-header">
+        <h5 class="card-title">Identification</h5>
+      </div> -->
+      <div class="card-body row pt-4">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+          <p class="h6">Model Name:</p>
+          <p><span *ngIf="wsInfo?.model?.name">{{wsInfo.model.name}}</span></p>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+          <p class="h6">Model ID:</p>
+          <p><span *ngIf="wsInfo?.model?.code">{{wsInfo.model.code}}</span></p>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+          <p class="h6">Workspace ID:</p>
+          <p><span *ngIf="wsInfo?.code">{{wsInfo?.code}}</span></p>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+          <p class="h6">Workspace Size Allowance:</p>
+          <p><span
+              *ngIf="wsInfo?.workspaceSizeAllowance">{{wsInfo.workspaceSizeAllowance / DATA_MOD | number:'1.0-2'}}GB</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row" style="min-height:300px">
+  <div class="col-md-4 col-sm-6">
+    <div class="card" style="height:90%">
+      <div class="card-header">
+        <h5 class="card-title">Model Quality Rate</h5>
+      </div>
+      <div class="card-body" style="height:90%">
+        <h1 class="card-title text-center"
+          style="color: #1f1f1f; font-size: calc(60px + 3vw); position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+          B+</h1>
+      </div>
+      <div class="card-footer">
+        <hr>
+        <div class="card-stats">
+          <i class="fa fa-angle-double-right"></i> Optimization Recommendations
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 col-sm-6">
+    <div class="card" style="height:90%">
+      <div class="card-header">
+        <h5 class="card-title">Model Size (GB)</h5>
+      </div>
+      <div class="card-body">
+        <apx-chart #modelSizeChat [chart]="modelSizeChatOpts.chart" [stroke]="modelSizeChatOpts.stroke"
+          [fill]="modelSizeChatOpts.fill" [series]="modelSizeChatOpts.series" [yaxis]="modelSizeChatOpts.yaxis"
+          [xaxis]="modelSizeChatOpts.xaxis" [colors]="modelSizeChatOpts.colors" [title]="modelSizeChatOpts.title"
+          [subtitle]="modelSizeChatOpts.subtitle" [labels]="modelSizeChatOpts.labels" [markers]="modelSizeChatOpts.markers">
+        </apx-chart>
+
+      </div>
+      <div class="card-footer">
+        <hr>
+        <div class="card-stats">
+          <a [routerLink]="routerLink.kpi"> <i class="fa fa-angle-double-right"></i> Model KPI</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4 col-sm-6">
+    <div class="card" style="height:90%">
+      <div class="card-header">
+        <h5 class="card-title">Workspace Usage (GB) </h5>
+      </div>
+      <div class="card-body">
+        <apx-chart #wsUsagesChat [chart]="wsUsagesChatOpts.chart" [stroke]="wsUsagesChatOpts.stroke"
+          [fill]="wsUsagesChatOpts.fill" [series]="wsUsagesChatOpts.series" [yaxis]="wsUsagesChatOpts.yaxis"
+          [xaxis]="wsUsagesChatOpts.xaxis" [colors]="wsUsagesChatOpts.colors" [title]="wsUsagesChatOpts.title"
+          [subtitle]="wsUsagesChatOpts.subtitle" [labels]="wsUsagesChatOpts.labels" [markers]="wsUsagesChatOpts.markers">
+        </apx-chart>
+
+      </div>
+      <div class="card-footer">
+        <hr>
+        <div class="card-stats">
+          <i class="fa fa-angle-double-right"></i> Workspace Allocation
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="row" style="min-height: 360px">
+  <div class="col-md-6 col-lg-6">
+    <div class="card" style="height: 90%">
+      <div class="card-header">
+        <h5 class="card-title">Snapshot History</h5>
+      </div>
+      <div class="card-body" style="margin-left:25px; margin-right:25px">
+        <apx-chart #modelChartHistory [stroke]="modelChartHistoryOpt.stroke" [chart]="modelChartHistoryOpt.chart"
+          [series]="modelChartHistoryOpt.series" [title]="modelChartHistoryOpt.title"
+          [xaxis]="modelChartHistoryOpt.xaxis" [yaxis]="modelChartHistoryOpt.yaxis"
+          [tooltip]="modelChartHistoryOpt.tooltip" [dataLabels]="modelChartHistoryOpt.dataLabels"
+          [markers]="modelChartHistoryOpt.markers" [grid]="modelChartHistoryOpt.grid">
+        </apx-chart>
+      </div>
+      <div class="card-footer">
+        <hr>
+        <div class="card-stats">
+          <i class="fa fa-angle-double-right"></i> Compare Snapshots
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 col-lg-6">
+    <div class="card" style="height: 90%">
+      <div class="card-header">
+        <h5 class="card-title">Snapshot Comments</h5>
+      </div>
+      <div class="card-body">
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,73 @@
+<div class="row">
+  <div class="col-md-12">
+    <h2 class="card-title">Module Details</h2>
+  </div>
+</div>
+
+<div style="height: 80vh">
+  <div class="row h-100">
+    <div class="col-9">
+      <div class="card card-body h-100">
+        <ag-grid-angular style="width: 100%; height: 100%;" class="ag-theme-balham" [rowData]="modelDataList"
+          [columnDefs]="modelDisplayedColumnDefs" (gridReady)="onGridReady($event)" [defaultColDef]="defaultColDef"
+          (rowClicked)="onRowSelected($event)">
+        </ag-grid-angular>
+      </div>
+    </div>
+    <div class="col-3 p-0 m-0" style="max-height:100%">
+      <div class="card card-body h-100 m-0 pr-1">
+        <h6>Details</h6>
+        <div *ngIf="selectedRow else notTemplate" style="overflow-y: auto;">
+          <div>
+            <div class="pro-title">Name</div>
+            <div class="pro-content pl-1">{{selectedRow.name}}</div>
+          </div>
+          <div>
+            <div class="pro-title">Applies To</div>
+            <div class="pro-content pl-1">
+              <ul *ngIf="selectedRow?.appliesTo?.length else noAppliesTo">
+                <li *ngFor="let apply of selectedRow.appliesTo">
+                  {{apply}}
+                </li>
+              </ul>
+              <ng-template #noAppliesTo>
+                No exists
+              </ng-template>
+            </div>
+          </div>
+          <div>
+            <div class="pro-title">Time Range</div>
+            <div class="pro-content pl-1">{{selectedRow.timeRange}}</div>
+          </div>
+          <div>
+            <div class="pro-title">Period Type</div>
+            <div class="pro-content pl-1">{{selectedRow.periodType}}</div>
+          </div>
+
+          <div>
+            <div class="pro-title">Version</div>
+            <div class="pro-content pl-1">{{selectedRow.version}}</div>
+          </div>
+
+          <div>
+            <div class="pro-title">Line Items</div>
+            <div class="pro-content pl-1">
+              <ul *ngIf="selectedRow?.lineitems?.length else noLineItems">
+                <li *ngFor="let apply of selectedRow.lineitems">
+                  {{apply}}
+                </li>
+              </ul>
+              <ng-template #noLineItems>
+                No exists
+              </ng-template>
+            </div>
+          </div>
+
+        </div>
+        <ng-template #notTemplate>
+          Module is not selected yet.
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>
